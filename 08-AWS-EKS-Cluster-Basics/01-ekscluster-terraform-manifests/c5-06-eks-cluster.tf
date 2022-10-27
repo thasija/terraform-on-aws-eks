@@ -5,9 +5,11 @@ resource "aws_eks_cluster" "eks_cluster" {
   version = var.cluster_version
 
   vpc_config {
+    # EKS Network Interfaces will be created in public subnets of the VPC
     subnet_ids = module.vpc.public_subnets
     endpoint_private_access = var.cluster_endpoint_private_access
     endpoint_public_access  = var.cluster_endpoint_public_access
+    # CIDRS which can access Kubernetes API of EKS through public endpoint 
     public_access_cidrs     = var.cluster_endpoint_public_access_cidrs    
   }
 

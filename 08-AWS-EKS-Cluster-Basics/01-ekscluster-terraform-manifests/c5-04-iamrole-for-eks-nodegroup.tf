@@ -1,4 +1,5 @@
 # IAM Role for EKS Node Group 
+# Node group is group of ec2 instances
 resource "aws_iam_role" "eks_nodegroup_role" {
   name = "${local.name}-eks-nodegroup-role"
 

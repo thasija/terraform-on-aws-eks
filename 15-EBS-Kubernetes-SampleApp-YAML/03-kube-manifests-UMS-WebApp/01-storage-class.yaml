@@ -4,6 +4,10 @@ metadata:
   name: ebs-sc
 provisioner: ebs.csi.aws.com
 volumeBindingMode: WaitForFirstConsumer 
+# reclaim Policy can be Retain or Delete , by default its delete, if reclaim policy is retain ,
+# PV that are dynamically created for this SC will have the reclaim policy of storage class
+reclaimPolicy: Retain
+allowVolumeExpansion: true
 
 
 # STORAGE CLASS 

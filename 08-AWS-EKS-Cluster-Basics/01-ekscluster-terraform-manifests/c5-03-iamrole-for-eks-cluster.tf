@@ -1,4 +1,5 @@
 # Create IAM Role
+# IAM role for EKS cluster
 resource "aws_iam_role" "eks_master_role" {
   name = "${local.name}-eks-master-role"
 

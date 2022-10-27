@@ -1,4 +1,6 @@
-Kalyans-MacBook-Pro:02-ebs-terraform-manifests kdaida$ kubectl describe deploy ebs-csi-controller -n kube-system
+kubectl describe deploy ebs-csi-controller -n kube-system
+
+
 Name:                   ebs-csi-controller
 Namespace:              kube-system
 CreationTimestamp:      Wed, 05 Jan 2022 09:38:32 +0530

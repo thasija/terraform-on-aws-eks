@@ -6,6 +6,7 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-type: nlb    # To create Network Load Balancer  
 spec:
   type: LoadBalancer # ClusterIp, # NodePort
+  # selector defines the pods for the backend of this service
   selector:
     app: myapp1
   ports: 

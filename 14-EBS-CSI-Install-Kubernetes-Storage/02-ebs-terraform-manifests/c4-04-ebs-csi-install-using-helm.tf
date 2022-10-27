@@ -1,7 +1,7 @@
 # Install EBS CSI Driver using HELM
 # Resource: Helm Release 
 resource "helm_release" "ebs_csi_driver" {
-  depends_on = [aws_iam_role.ebs_csi_iam_role]
+  depends_on = [aws_iam_role.ebs_csi_iam_role, aws_iam_role_policy_attachment.ebs_csi_iam_role_policy_attach]
   name       = "${local.name}-aws-ebs-csi-driver"
   repository = "https://kubernetes-sigs.github.io/aws-ebs-csi-driver"
   chart      = "aws-ebs-csi-driver"
