@@ -27,9 +27,11 @@ spec:
             - name: mysql-persistent-storage
               mountPath: /var/lib/mysql    
             - name: usermanagement-dbcreation-script
-              mountPath: /docker-entrypoint-initdb.d #https://hub.docker.com/_/mysql Refer Initializing a fresh instance                                            
+              mountPath: /docker-entrypoint-initdb.d #https://hub.docker.com/_/mysql Refer Initializing a fresh instance 
+# volumes are configured at the Pod level                                            
       volumes: 
         - name: mysql-persistent-storage
+#  reference to persistent volume claim ebs-mysql-pv-claim
           persistentVolumeClaim:
             claimName: ebs-mysql-pv-claim
         - name: usermanagement-dbcreation-script
