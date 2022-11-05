@@ -12,7 +12,8 @@ resource "aws_iam_role" "eks_readonly_role" {
         Effect = "Allow"
         Sid    = ""
         Principal = {
-          AWS = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"
+            AWS = aws_iam_group.eksreadonly_iam_group.arn
+          # AWS = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"
         }
       },
     ]

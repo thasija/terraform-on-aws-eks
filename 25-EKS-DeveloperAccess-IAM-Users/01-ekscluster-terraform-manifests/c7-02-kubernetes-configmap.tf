@@ -48,7 +48,10 @@ locals {
     },    
   ]    
 }
-# Resource: Kubernetes Config Map
+# Resource: Kubernetes Config Map aws-auth
+# aws-auth config map has two main keys mapRoles and mapUsers
+# mapRoles maps the IAM role to the kubernetes groups , these groups can be used as Subjects in cluster role binding and role binding
+# mapUsers maps the userarn to the kubernetes groups 
 resource "kubernetes_config_map_v1" "aws_auth" {
   depends_on = [
     aws_eks_cluster.eks_cluster,

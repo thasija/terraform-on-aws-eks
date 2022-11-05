@@ -355,7 +355,7 @@ echo $ACCOUNT_ID
 
 # Assume IAM Role
 aws sts assume-role --role-arn "arn:aws:iam::<REPLACE-YOUR-ACCOUNT-ID>:role/eks-admin-role" --role-session-name eksadminsession201
-aws sts assume-role --role-arn "arn:aws:iam::$ACCOUNT_ID:role/hr-dev-eks-readonly-role" --role-session-name eksadminsession901
+aws sts assume-role --role-arn "arn:aws:iam::$ACCOUNT_ID:role/hr-dev-eks-readonly-role" --role-session-name eksreadonlysession101
 
 # GET Values and replace here
 export AWS_ACCESS_KEY_ID=RoleAccessKeyID
@@ -533,7 +533,7 @@ echo $ACCOUNT_ID
 
 # Assume IAM Role
 aws sts assume-role --role-arn "arn:aws:iam::<REPLACE-YOUR-ACCOUNT-ID>:role/eks-admin-role" --role-session-name eksadminsession201
-aws sts assume-role --role-arn "arn:aws:iam::$ACCOUNT_ID:role/hr-dev-eks-readonly-role" --role-session-name eksadminsession501
+aws sts assume-role --role-arn "arn:aws:iam::$ACCOUNT_ID:role/hr-dev-eks-readonly-role" --role-session-name eksreadonly202
 
 # GET Values and replace here
 export AWS_ACCESS_KEY_ID=RoleAccessKeyID
@@ -570,10 +570,12 @@ aws eks --region us-east-1 update-kubeconfig --name hr-dev-eksdemo1
 kubectl get nodes
 
 # Verify Service Accounts
+#kubectl get service account
 kubectl get sa
 kubectl get sa -n kube-system
 
 # Verify ConfigMaps
+# kubectl get configmap
 kubectl get cm
 kubectl get cm -n kube-system
 

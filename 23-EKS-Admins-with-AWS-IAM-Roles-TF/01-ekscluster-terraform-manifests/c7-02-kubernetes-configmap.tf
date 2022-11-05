@@ -7,6 +7,7 @@ output "account_id" {
 # Sample Role Format: arn:aws:iam::180789647333:role/hr-dev-eks-nodegroup-role
 # Locals Block
 locals {
+# configmap_roles and configmap_users is a list of maps
   configmap_roles = [
     {
       #rolearn  = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${aws_iam_role.eks_nodegroup_role.name}"
@@ -36,6 +37,8 @@ locals {
 # Resource: Kubernetes Config Map
 resource "kubernetes_config_map_v1" "aws_auth" {
   depends_on = [aws_eks_cluster.eks_cluster  ]
+  # name is the name of config map and has to be aws-auth
+  # create the config map in the kube-system namespace
   metadata {
     name      = "aws-auth"
     namespace = "kube-system"

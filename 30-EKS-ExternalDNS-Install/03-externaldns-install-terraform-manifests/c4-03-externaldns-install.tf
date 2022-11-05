@@ -1,11 +1,16 @@
 # Resource: Helm Release 
+# helm_release resource installs helm chart
+
 resource "helm_release" "external_dns" {
-  depends_on = [aws_iam_role.externaldns_iam_role]            
+  depends_on = [aws_iam_role.externaldns_iam_role]  
+  # name is the release name          
   name       = "external-dns"
 
+  # Repository URL where to locate the requested chart
   repository = "https://kubernetes-sigs.github.io/external-dns/"
   chart      = "external-dns"
 
+# install the chart in the default namespace
   namespace = "default"     
 
   set {
@@ -23,6 +28,7 @@ resource "helm_release" "external_dns" {
     value = "external-dns"
   }
 
+  # annotate the external-dns service account with the role-arn
   set {
     name  = "serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn"
     value = "${aws_iam_role.externaldns_iam_role.arn}"

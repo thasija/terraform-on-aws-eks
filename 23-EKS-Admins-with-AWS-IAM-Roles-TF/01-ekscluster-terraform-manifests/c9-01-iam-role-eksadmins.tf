@@ -13,7 +13,9 @@ resource "aws_iam_role" "eks_admin_role" {
         Effect = "Allow"
         Sid    = ""
         Principal = {
-          AWS = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"
+          # change Principal for assumeRole to eksadmins iam group instead of root arn 
+          # AWS = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"
+          AWS = aws_iam_group.eksadmins_iam_group.arn
         }
       },
     ]
