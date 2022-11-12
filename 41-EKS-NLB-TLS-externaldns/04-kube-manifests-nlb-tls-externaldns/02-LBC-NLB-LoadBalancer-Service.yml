@@ -36,6 +36,7 @@ spec:
   type: LoadBalancer
   selector:
     app: app3-nginx
+# there is one to one mapping for port and target group for AWS NLB
   ports:
     - name: http
       port: 80

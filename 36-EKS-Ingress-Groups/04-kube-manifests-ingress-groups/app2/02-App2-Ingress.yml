@@ -8,7 +8,7 @@ metadata:
     # Ingress Core Settings  
     #kubernetes.io/ingress.class: "alb"
     alb.ingress.kubernetes.io/scheme: internet-facing
-    # Load Balancer Name
+    # Load Balancer Name , load balancer name same for the ingress group
     alb.ingress.kubernetes.io/load-balancer-name: ingress-groups-demo
     # Health Check Settings
     alb.ingress.kubernetes.io/healthcheck-protocol: HTTP 

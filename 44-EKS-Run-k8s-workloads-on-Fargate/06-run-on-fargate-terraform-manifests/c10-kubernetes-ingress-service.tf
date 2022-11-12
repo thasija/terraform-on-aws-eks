@@ -28,7 +28,7 @@ resource "kubernetes_ingress_v1" "ingress" {
       "alb.ingress.kubernetes.io/ssl-redirect" = 443
       # External DNS - For creating a Record Set in Route53
       "external-dns.alpha.kubernetes.io/hostname" = "fargate-profile-demo-501.stacksimplify.com"
-      # Target Type: IP (Defaults to Instance if not specified)
+      # Target Type: IP (Defaults to Instance if not specified), To use pods running in Fargate profile target-type has to be ip.
       "alb.ingress.kubernetes.io/target-type" = "ip"
     }    
   }

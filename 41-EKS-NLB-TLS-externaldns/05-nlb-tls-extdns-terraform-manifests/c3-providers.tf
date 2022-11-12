@@ -7,6 +7,7 @@ data "aws_eks_cluster" "cluster" {
   name = data.terraform_remote_state.eks.outputs.cluster_id
 }
 
+# data aws_eks_cluster_auth is used to retrieve the eks cluster token to connect in the kubernetes provider
 data "aws_eks_cluster_auth" "cluster" {
   name = data.terraform_remote_state.eks.outputs.cluster_id
 }

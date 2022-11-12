@@ -33,9 +33,12 @@ resource "kubernetes_deployment_v1" "myapp3" {
           }
           resources {
             requests = {
+              # 1000m cpu is 1 vcpu and 2048Mi is 2GB memory
+              # 1 vcpu and 2048Mi provisions pod with 1 vcpu and 3G memory
               "cpu" = "1000m"
               "memory" = "2048Mi" 
             }
+            # limits place upper limits on cpu and memory
             limits = {
               "cpu" = "2000m"
               "memory" = "4096Mi"

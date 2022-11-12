@@ -28,6 +28,7 @@ resource "kubernetes_ingress_v1" "ingress" {
       # External DNS - For creating a Record Set in Route53
       "external-dns.alpha.kubernetes.io/hostname" = "tftarget-type-ip-501.stacksimplify.com"
       # Target Type: IP (Defaults to Instance if not specified)
+      # target type IP registers the pods IP addresses as targets 
       "alb.ingress.kubernetes.io/target-type" = "ip"
     }    
   }

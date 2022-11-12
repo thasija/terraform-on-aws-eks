@@ -5,6 +5,7 @@ resource "kubernetes_service_v1" "myapp3_nlb_service" {
     annotations = {
       # Traffic Routing
       "service.beta.kubernetes.io/aws-load-balancer-name" = "basics-lbc-network-lb"
+      # use the aws load balancer controller to create the AWS NLB, associate with AWS load balancer controller
       "service.beta.kubernetes.io/aws-load-balancer-type" = "external"
       "service.beta.kubernetes.io/aws-load-balancer-nlb-target-type" = "instance" # specifies the target type to configure for NLB. You can choose between instance and ip
       #service.beta.kubernetes.io/aws-load-balancer-subnets: subnet-xxxx, mySubnet ## Subnets are auto-discovered if this annotation is not specified, see Subnet Discovery for further details.

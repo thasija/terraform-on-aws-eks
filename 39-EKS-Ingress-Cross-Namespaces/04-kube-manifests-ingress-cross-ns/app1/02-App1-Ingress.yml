@@ -6,7 +6,7 @@ metadata:
   name: app1-ingress
   namespace: ns-app1  
   annotations:
-    # Load Balancer Name
+    # Load Balancer Name is the same for all 3 ingresses in the 3 namespaces
     alb.ingress.kubernetes.io/load-balancer-name: ingress-crossns-demo
     # Ingress Core Settings  
     #kubernetes.io/ingress.class: "alb" (OLD INGRESS CLASS NOTATION - STILL WORKS BUT RECOMMENDED TO USE IngressClass Resource)
@@ -28,7 +28,7 @@ metadata:
     alb.ingress.kubernetes.io/ssl-redirect: '443'
     # External DNS - For creating a Record Set in Route53
     external-dns.alpha.kubernetes.io/hostname: ingress-crossns-demo601.stacksimplify.com 
-    # Ingress Groups
+    # Ingress Groups , all 3 Ingress in different namespaces have same group.name 
     alb.ingress.kubernetes.io/group.name: myapps.web
     alb.ingress.kubernetes.io/group.order: '10'
 spec:

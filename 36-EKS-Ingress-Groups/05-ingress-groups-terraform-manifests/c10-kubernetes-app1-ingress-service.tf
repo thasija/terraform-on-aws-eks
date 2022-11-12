@@ -3,7 +3,7 @@ resource "kubernetes_ingress_v1" "ingress_app1" {
   metadata {
     name = "app1-ingress"
     annotations = {
-      # Load Balancer Name
+      # Load Balancer Name is the same for all the ingress in the ingress group
       "alb.ingress.kubernetes.io/load-balancer-name" = "ingress-groups-demo"
       # Ingress Core Settings
       "alb.ingress.kubernetes.io/scheme" = "internet-facing"
